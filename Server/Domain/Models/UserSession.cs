@@ -38,6 +38,6 @@
     /// <summary>
     /// Gets or sets session end.
     /// </summary>
-    public DateTime SessionEnd { get; set; }
+    public DateTime? SessionEnd { get; set; }
   }
 }

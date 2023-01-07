@@ -5,7 +5,6 @@
   /// </summary>
   public class User : Entity
   {
-
     /// <summary>
     /// Initializes a new instance of the <see cref="User"/> class.
     /// </summary>

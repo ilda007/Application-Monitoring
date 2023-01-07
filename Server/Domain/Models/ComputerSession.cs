@@ -13,7 +13,7 @@
     /// <param name="computer">Computer.</param>
     /// <param name="sessionBegin">Session begin.</param>
     /// <param name="note">Note.</param>
-    public ComputerSession(Computer computer, DateTime sessionBegin, string note = null)
+    public ComputerSession(Computer computer, DateTime sessionBegin, string? note = null)
     {
       this.Computer = computer;
       this.SessionBegin = sessionBegin;
@@ -40,11 +40,11 @@
     /// <summary>
     /// Gets or sets session end.
     /// </summary>
-    public DateTime SessionEnd { get; set; }
+    public DateTime? SessionEnd { get; set; }
 
     /// <summary>
     /// Gets or sets session note.
     /// </summary>
-    public string Note { get; set; }
+    public string? Note { get; set; }
   }
 }

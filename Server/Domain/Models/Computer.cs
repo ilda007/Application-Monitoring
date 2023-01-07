@@ -15,7 +15,7 @@
     /// <param name="ip">Ip address.</param>
     /// <param name="application">Application.</param>
     /// <param name="note">Note.</param>
-    public Computer(string login, string name, string ip, Application application, string note = null)
+    public Computer(string login, string name, string ip, Application application, string? note = null)
     {
       this.Login = login;
       this.Name = name;
@@ -49,7 +49,7 @@
     /// <summary>
     /// Gets or sets computer name owner.
     /// </summary>
-    public string Username { get; set; }
+    public string? Username { get; set; }
 
     /// <summary>
     /// Gets or sets last session begin.
@@ -59,7 +59,7 @@
     /// <summary>
     /// Gets or sets last session long.
     /// </summary>
-    public DateTime SessionLong { get; set; }
+    public TimeSpan SessionLong { get; set; }
 
     /// <summary>
     /// Gets or sets application.
@@ -69,6 +69,6 @@
     /// <summary>
     /// Gets or sets note.
     /// </summary>
-    public string Note { get; set; }
+    public string? Note { get; set; }
   }
 }
