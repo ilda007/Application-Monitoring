@@ -13,28 +13,19 @@
     /// <param name="login">Login.</param>
     /// <param name="name">Computer name.</param>
     /// <param name="ip">Ip address.</param>
-    /// <param name="application">Application.</param>
     /// <param name="note">Note.</param>
-    public Computer(string login, string name, string ip, Application application, string? note = null)
+    public Computer(string login, string name, string ip, string? note = null)
     {
       this.Login = login;
       this.Name = name;
       this.Ip = ip;
-      this.Application = application;
       this.Note = note;
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Computer"/> class.
+    /// Gets or sets computer login.
     /// </summary>
-    private Computer()
-    {
-    }
-
-    /// <summary>
-    /// Gets computer login.
-    /// </summary>
-    public string Login { get; }
+    public string Login { get; set; }
 
     /// <summary>
     /// Gets or sets computer Ip.

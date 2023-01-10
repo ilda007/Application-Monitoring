@@ -1,8 +1,8 @@
-﻿using Domain.Models;
-using Domain.Repositories;
-
-namespace Domain.Services
+﻿namespace Domain.Services
 {
+  using Domain.Models;
+  using Domain.Repositories;
+
   /// <summary>
   /// Application service class.
   /// </summary>

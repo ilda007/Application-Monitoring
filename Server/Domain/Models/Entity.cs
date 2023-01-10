@@ -1,11 +1,11 @@
-using System;
-
 namespace Domain
 {
+  using System;
+
   /// <summary>
   /// Entity class.
   /// </summary>
- public abstract class Entity : IEntity
+  public abstract class Entity : IEntity
   {
     /// <summary>
     /// Gets or sets id.

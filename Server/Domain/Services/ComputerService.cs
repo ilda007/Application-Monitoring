@@ -35,7 +35,10 @@
     /// <returns>New computer.</returns>
     public Computer RegisterComputer(string login, string name, string ip, Application application, string note)
     {
-      var computer = new Computer(login, name, ip, application, note);
+      var computer = new Computer(login, name, ip, note)
+      {
+        Application = application,
+      };
       this.computerRepository.Save(computer);
       return computer;
     }
@@ -48,7 +51,10 @@
     /// <returns>Computer session.</returns>
     public ComputerSession CreateSession(Computer computer, DateTime sessionBegin)
     {
-      var session = new ComputerSession(computer, sessionBegin);
+      var session = new ComputerSession(sessionBegin)
+      {
+        Computer = computer,
+      };
       computer.LastActivity = session.SessionBegin;
       this.computerSessionRepository.Save(session);
       this.computerRepository.Save(computer);

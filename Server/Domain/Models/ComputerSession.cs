@@ -13,29 +13,21 @@
     /// <param name="computer">Computer.</param>
     /// <param name="sessionBegin">Session begin.</param>
     /// <param name="note">Note.</param>
-    public ComputerSession(Computer computer, DateTime sessionBegin, string? note = null)
+    public ComputerSession(DateTime sessionBegin, string? note = null)
     {
-      this.Computer = computer;
       this.SessionBegin = sessionBegin;
       this.Note = note;
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ComputerSession"/> class.
+    /// Gets or sets computer.
     /// </summary>
-    private ComputerSession()
-    {
-    }
+    public Computer Computer { get; set; }
 
     /// <summary>
-    /// Gets computer.
+    /// Gets or sets session begin.
     /// </summary>
-    public Computer Computer { get; }
-
-    /// <summary>
-    /// Gets session begin.
-    /// </summary>
-    public DateTime SessionBegin { get; }
+    public DateTime SessionBegin { get; set; }
 
     /// <summary>
     /// Gets or sets session end.

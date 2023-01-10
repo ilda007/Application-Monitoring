@@ -1,4 +1,4 @@
-﻿namespace Domain
+﻿namespace Domain.Models
 {
   /// <summary>
   /// User class.
@@ -19,17 +19,9 @@
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="User"/> class.
-    /// Default constructor.
+    /// Gets or sets user login.
     /// </summary>
-    private User()
-    {
-    }
-
-    /// <summary>
-    /// Gets user login.
-    /// </summary>
-    public string Login { get; }
+    public string Login { get; set; }
 
     /// <summary>
     /// Gets or sets user name.

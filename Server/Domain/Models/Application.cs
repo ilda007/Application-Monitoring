@@ -21,13 +21,6 @@
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Application"/> class.
-    /// </summary>
-    private Application()
-    {
-    }
-
-    /// <summary>
     /// Gets or sets application type.
     /// </summary>
     public ApplicationType ApplicationType { get; set; }

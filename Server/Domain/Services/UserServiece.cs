@@ -79,8 +79,10 @@
     /// <returns>New user sesseion.</returns>
     public UserSession CreateSession(User user, DateTime sessionBegin)
     {
-      var userSession = new UserSession(user, sessionBegin);
-
+      var userSession = new UserSession(sessionBegin)
+      {
+        User = user,
+      };
       this.userSessionRepository.Save(userSession);
       return userSession;
     }
