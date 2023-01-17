@@ -1,5 +1,7 @@
 ﻿namespace Domain.Repositories
 {
+  using System;
+  using System.Collections.Generic;
   using System.Linq;
 
   /// <summary>
@@ -29,12 +31,14 @@
     /// <returns>Entity.</returns>
     T Get(int id);
 
+    IEnumerable<T> GetAll();
+
     /// <summary>
     /// Get all entities from repository.
     /// </summary>
     /// <param name="func">Condition.</param>
     /// <returns>All entities.</returns>
-    IQueryable<T> GetAll(IsEqual? func = null);
+    IEnumerable<T> GetAll(Func<T, bool> predicate);
 
     /// <summary>
     /// Delete entity in repository.
