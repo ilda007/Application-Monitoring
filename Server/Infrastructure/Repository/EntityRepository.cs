@@ -14,6 +14,16 @@
   public abstract class EntityRepository<T> : IRepository<T>
       where T : class, IEntity
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EntityRepository{T}"/> class.
+    /// </summary>
+    /// <param name="connectorDataBase">Connection for database.</param>
+    public EntityRepository(ConnectorDataBase connectorDataBase)
+    {
+      this.ConnectorDataBase = connectorDataBase;
+      this.Repository = this.ConnectorDataBase.Set<T>();
+    }
+
     private ConnectorDataBase ConnectorDataBase { get; set; }
 
     /// <summary>
@@ -22,25 +32,23 @@
     private DbSet<T> Repository { get; set; } = null!;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="EntityRepository{T}"/> class.
+    /// Delete entity from repository.
     /// </summary>
-    /// <param name="connectorDataBase"></param>
-    public EntityRepository(ConnectorDataBase connectorDataBase)
-    {
-      this.ConnectorDataBase = connectorDataBase;
-      this.Repository = this.ConnectorDataBase.Set<T>();
-    }
-
+    /// <param name="enity">Entity being deleted.</param>
     public void Delete(T enity)
     {
       this.Repository.Remove(enity);
       this.ConnectorDataBase.SaveChanges();
-
     }
 
+    /// <summary>
+    /// Get enity by Id.
+    /// </summary>
+    /// <param name="id">Entity id.</param>
+    /// <returns>Entity.</returns>
     public T Get(int id)
     {
-      return Repository.FirstOrDefault(t => t.Id == id);
+      return this.Repository.FirstOrDefault(t => t.Id == id);
     }
 
     /// <summary>
@@ -59,9 +67,13 @@
     /// <returns>Entities collection.</returns>
     public IEnumerable<T> GetAll(Func<T, bool> predicate)
     {
-      return Repository.AsQueryable().Where(predicate);
+      return this.Repository.AsQueryable().Where(predicate);
     }
 
+    /// <summary>
+    /// Save entity to repository.
+    /// </summary>
+    /// <param name="entity">Entity.</param>
     public void Save(T entity)
     {
       if (this.Repository.Any() && this.Repository.FirstOrDefault(e => Equals(e, entity)) is not null)
